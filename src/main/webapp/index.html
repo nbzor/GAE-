@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Cloud</title>	
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    </head>
+    <body>        
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Cloud Computing</h1>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Translate</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">                                
+                            <select id="from" class="form-control languages">
+                                <option>Detect</option>
+                            </select>
+                            <textarea class="form-control" rows="5" id="input" style="resize: none" placeholder="Enter Text"></textarea>
+                        </div>
+                        <div id="to" class="col-md-6">   
+                            <select class="form-control languages">
+                                <option>EN</option>
+                            </select>
+                            <textarea class="form-control" rows="5" id="output" style="resize: none" readonly placeholder="Translation"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>       
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="js/t3.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    </body>
+</html>
