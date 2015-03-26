@@ -63,7 +63,7 @@
             <artifactId>google-api-client</artifactId>
             <version>1.20.0</version>
             <type>jar</type>
-        </dependency>
+        </dependency>               
         <dependency>
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-translate</artifactId>
@@ -74,6 +74,12 @@
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-urlshortener</artifactId>
             <version>v1-rev40-1.20.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client</artifactId>
+            <version>1.20.0</version>
+            <type>jar</type>
         </dependency>
     </dependencies>
 
@@ -126,6 +132,6 @@
         <jersey.version>2.16</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jetty.version>9.0.6.v20130930</jetty.version>
-        <appengine.target.version>1.9.14</appengine.target.version>
+        <appengine.target.version>1.9.14</appengine.target.version>      
     </properties>
 </project>

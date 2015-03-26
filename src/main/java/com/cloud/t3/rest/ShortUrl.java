@@ -24,7 +24,7 @@ public class ShortUrl extends Resource {
     @GET
     @Produces("application/json")
     public Response getAll() throws IOException {
-        Urlshortener.Url url = new Urlshortener.Builder(new NetHttpTransport(), new JacksonFactory(),null).
+        Urlshortener.Url url = new Urlshortener.Builder(new NetHttpTransport(), new JacksonFactory(),App.CREDENTIAL_DEFAULT).
                 setApplicationName(App.APPLICATION_NAME).build().url();
         
         Urlshortener.Url.List uList = url.list();

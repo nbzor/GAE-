@@ -22,14 +22,13 @@ import javax.ws.rs.core.Response;
  */
 @Path("translate")
 public class Trans extends Resource {
-
+    
     @GET
     @Produces("application/json")
     public Response getAll() throws IOException {
         Translate translate = new Translate.Builder(new NetHttpTransport(), new JacksonFactory(), CREDENTIAL_DEFAULT).setApplicationName(App.APPLICATION_NAME).build();
-        Languages.List l = translate.languages().list();
-        l.setKey(App.API_KEY_DEFAULT);
-        return OK(l.execute().toPrettyString());
+        Languages.List l = translate.languages().list().setKey(App.API_KEY_DEFAULT);
+        return OK(l.execute().getLanguages().toArray());
     }
 
     @GET
@@ -44,14 +43,14 @@ public class Trans extends Resource {
         List<String> listText = new ArrayList<>();
         listText.add(text);
 
-        Translate.Translations.List tList = translate.translations().list(listText, to);
+        Translate.Translations.List tList = translate.translations().list(listText, to).setKey(App.API_KEY_DEFAULT);
         if (!"detect".equals(from.toLowerCase())) {
-            tList.setSource(from);
+            tList = tList.setSource(from);
         }
-        tList.setTarget(to);
-        tList.setQ(listText);
-        tList.setKey(App.API_KEY_DEFAULT);
+        tList = tList.setTarget(to);
+        tList = tList.setQ(listText);
+        tList = tList.setKey(App.API_KEY_DEFAULT);
 
-        return OK(tList.execute().toPrettyString());
+        return OK(tList.execute().getTranslations().toArray());
     }
 }
