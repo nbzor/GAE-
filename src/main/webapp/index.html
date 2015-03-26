@@ -32,9 +32,48 @@
                     </div>
                 </div>
             </div>
-        </div>       
-        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-        <script src="js/t3.js"></script>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>URL Shortener</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">                   
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Get short url...">
+                            </div><!-- /input-group -->        
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Get short url...">
+                            </div><!-- /input-group -->        
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Google Maps</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="row">                       
+                        <div id="map-canvas" style="height: 400px;width: 100%"></div>                        
+                    </div>
+                </div>
+            </div>
+        </div>            
+
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>     
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="js/t3.js"></script>
     </body>
 </html>

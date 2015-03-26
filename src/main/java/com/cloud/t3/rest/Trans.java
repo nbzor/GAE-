@@ -26,7 +26,7 @@ public class Trans extends Resource {
     @GET
     @Produces("application/json")
     public Response getAll() throws IOException {
-        Translate translate = new Translate.Builder(new NetHttpTransport(), new JacksonFactory(), CREDENTIAL_DEFAULT).build();
+        Translate translate = new Translate.Builder(new NetHttpTransport(), new JacksonFactory(), CREDENTIAL_DEFAULT).setApplicationName(App.APPLICATION_NAME).build();
         Languages.List l = translate.languages().list();
         l.setKey(App.API_KEY_DEFAULT);
         return OK(l.execute().toPrettyString());
@@ -39,9 +39,9 @@ public class Trans extends Resource {
         if (text.isEmpty()) {
             return BAD_REQUEST;
         }
-        Translate translate = new Translate.Builder(new NetHttpTransport(), new JacksonFactory(), CREDENTIAL_DEFAULT).build();
+        Translate translate = new Translate.Builder(new NetHttpTransport(), new JacksonFactory(), CREDENTIAL_DEFAULT).setApplicationName(App.APPLICATION_NAME).build();
 
-        List<String> listText = new ArrayList<String>();
+        List<String> listText = new ArrayList<>();
         listText.add(text);
 
         Translate.Translations.List tList = translate.translations().list(listText, to);

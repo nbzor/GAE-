@@ -3,7 +3,6 @@
     
     <application>focus-flight-89512</application>
     <version>1</version>
-	
     <threadsafe>true</threadsafe>
 
     <system-properties>

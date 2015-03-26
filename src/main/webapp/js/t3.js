@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     var TRANSLATE_API = "api/translate";
-
+    LoadMap();
     $(".dropdown-menu li a").click(function () {
         var selText = $(this).text();
         $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 
     $("#input").keyup(function (event) {
-        if($("#input").val().length === 0){
+        if ($("#input").val().length === 0) {
             $("#output").text("");
             return;
         }
@@ -35,4 +35,38 @@ $(document).ready(function () {
         });
         $(".languages").append(items);
     });
+
+
+
+    function LoadMap() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (p) {
+                $('#map-canvas').empty();
+                var d = {lat: p.coords.latitude, lng: p.coords.longitude};
+                
+                var mapOptions = {
+                    center: d,
+                    minZoom: 6,
+                    maxZoom: 14,
+                    zoom: 8
+                };
+                var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: d,
+                    map: map,
+                });
+                var infowindow = new google.maps.InfoWindow({
+                    content: "ME!"
+                });
+
+                infowindow.open(map, marker);
+                
+                google.maps.event.addListener(map,"rightclick",function(event){
+                   console.log(event.latLng.lat()); 
+                   console.log(event.latLng.lng()); 
+                });
+            });
+        }
+    }
 });
